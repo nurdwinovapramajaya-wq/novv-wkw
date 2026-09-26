@@ -91,10 +91,6 @@
             border-radius: 10px;
         }
 
-        .tabs-wrapper::-webkit-scrollbar-thumb:hover {
-            background: #555;
-        }
-
         .tabs {
             display: flex;
             gap: 8px;
@@ -173,32 +169,46 @@
         }
 
         /* ============================================================
-                   HOME (LANDSCAPE 2 KOLOM)
+                   HOME
                    ============================================================ */
         .hero-landscape {
             display: grid;
-            grid-template-columns: 380px 1fr;
-            gap: 50px;
+            grid-template-columns: 1fr 1.8fr;
+            gap: 60px;
             align-items: start;
         }
 
         .hero-left {
             position: sticky;
-            top: 120px;
+            top: 140px;
+        }
+
+        /* Foto + Nama + Status samping-sampingan */
+        .hero-top {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 12px;
         }
 
         .hero-photo {
-            width: 100%;
-            aspect-ratio: 1 / 1;
+            width: 80px;
+            height: 80px;
             object-fit: cover;
-            border-radius: 20px;
-            border: 2px solid #1a1a1a;
+            border-radius: 50%;
+            border: 2px solid #222;
             transition: 0.4s;
-            display: block;
+            flex-shrink: 0;
         }
 
         .hero-photo:hover {
-            border-color: #333;
+            border-color: #555;
+            transform: scale(1.05);
+        }
+
+        .hero-info {
+            flex: 1;
+            min-width: 0;
         }
 
         .hero-status {
@@ -209,7 +219,7 @@
             color: #888;
             letter-spacing: 1.5px;
             text-transform: uppercase;
-            margin-top: 20px;
+            margin-bottom: 6px;
         }
 
         .hero-status::before {
@@ -227,6 +237,21 @@
             50% { opacity: 0.4; }
         }
 
+        .hero-name {
+            font-size: 20px;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+            margin-bottom: 4px;
+        }
+
+        .hero-role {
+            font-size: 13px;
+            color: #888;
+            font-weight: 300;
+        }
+
         .hero-right h1 {
             font-size: clamp(32px, 4vw, 52px);
             font-weight: 900;
@@ -234,13 +259,6 @@
             letter-spacing: -1.5px;
             line-height: 1.05;
             margin-bottom: 12px;
-        }
-
-        .hero-role {
-            font-size: 16px;
-            color: #888;
-            font-weight: 300;
-            margin-bottom: 24px;
         }
 
         .hero-desc {
@@ -256,7 +274,6 @@
             font-weight: 500;
         }
 
-        /* CTA Buttons */
         .hero-cta {
             display: flex;
             gap: 12px;
@@ -308,7 +325,6 @@
             transform: translateY(-2px);
         }
 
-        /* Stats */
         .stats {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -344,7 +360,6 @@
             margin-top: 4px;
         }
 
-        /* Skills highlight di home */
         .home-section-title {
             font-size: 14px;
             color: #666;
@@ -369,12 +384,26 @@
             align-items: center;
             gap: 14px;
             transition: 0.3s;
+            cursor: pointer;
+            position: relative;
         }
 
         .expertise-item:hover {
-            border-color: #333;
+            border-color: #555;
             background: #0a0a0a;
             transform: translateY(-2px);
+        }
+
+        .expertise-item .arrow-icon {
+            margin-left: auto;
+            color: #333;
+            font-size: 12px;
+            transition: 0.3s;
+        }
+
+        .expertise-item:hover .arrow-icon {
+            color: #fff;
+            transform: translateX(4px);
         }
 
         .expertise-icon {
@@ -403,7 +432,6 @@
             font-weight: 300;
         }
 
-        /* Quote */
         .home-quote {
             padding: 24px 28px;
             border-left: 2px solid #333;
@@ -413,6 +441,89 @@
             font-style: italic;
             font-size: 15px;
             line-height: 1.7;
+        }
+
+        /* ============================================================
+                   HALAMAN ARTIKEL
+                   ============================================================ */
+        .article-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border: 1px solid #1a1a1a;
+            border-radius: 50px;
+            background: transparent;
+            color: #888;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-bottom: 30px;
+        }
+
+        .article-back:hover {
+            color: #fff;
+            border-color: #333;
+        }
+
+        .article-title {
+            font-size: 36px;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: -0.8px;
+            margin-bottom: 12px;
+        }
+
+        .article-meta {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .article-cover {
+            width: 100%;
+            max-width: 600px;
+            aspect-ratio: 16 / 9;
+            border: 1px solid #1a1a1a;
+            border-radius: 16px;
+            margin-bottom: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 70px;
+            color: #333;
+            background: #0a0a0a;
+        }
+
+        .article-content p {
+            font-size: 16px;
+            color: #aaa;
+            line-height: 1.9;
+            font-weight: 300;
+            margin-bottom: 18px;
+            text-align: justify;
+        }
+
+        .article-content h3 {
+            font-size: 20px;
+            color: #fff;
+            font-weight: 700;
+            margin: 30px 0 14px;
+        }
+
+        .article-content ul {
+            padding-left: 20px;
+            margin-bottom: 18px;
+        }
+
+        .article-content ul li {
+            font-size: 15px;
+            color: #aaa;
+            line-height: 1.9;
+            font-weight: 300;
+            margin-bottom: 6px;
         }
 
         /* ============================================================
@@ -447,34 +558,6 @@
             color: #ffffff;
             font-weight: 500;
             text-align: right;
-        }
-
-        /* ============================================================
-                   TENTANG
-                   ============================================================ */
-        .about-p {
-            font-size: 15px;
-            color: #aaa;
-            line-height: 1.9;
-            font-weight: 300;
-            margin-bottom: 18px;
-            text-align: justify;
-        }
-
-        .about-p .hl {
-            color: #ffffff;
-            font-weight: 600;
-        }
-
-        .about-quote {
-            margin-top: 28px;
-            padding: 20px 24px;
-            border-left: 2px solid #333;
-            color: #ccc;
-            font-style: italic;
-            font-size: 15px;
-            background: #0a0a0a;
-            border-radius: 0 10px 10px 0;
         }
 
         /* ============================================================
@@ -527,7 +610,7 @@
         }
 
         /* ============================================================
-                   GALERI — BINGKAI MENYESUAIKAN FOTO
+                   GALERI
                    ============================================================ */
         .gallery-masonry {
             columns: 4;
@@ -543,6 +626,8 @@
             border: 1px solid #1a1a1a;
             transition: 0.3s;
             display: block;
+            cursor: pointer;
+            position: relative;
         }
 
         .gallery-item:hover {
@@ -562,6 +647,90 @@
         .gallery-item:hover img {
             filter: grayscale(0%);
             transform: scale(1.03);
+        }
+
+        .gallery-item::after {
+            content: '\f00e';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            color: #fff;
+            font-size: 24px;
+            background: rgba(0, 0, 0, 0.6);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .gallery-item:hover::after {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+
+        /* ============================================================
+                   LIGHTBOX
+                   ============================================================ */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 8px;
+            animation: zoomIn 0.3s ease;
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(90deg);
         }
 
         /* ============================================================
@@ -627,8 +796,8 @@
             }
 
             .hero-landscape {
-                grid-template-columns: 300px 1fr;
-                gap: 36px;
+                grid-template-columns: 1fr 1.5fr;
+                gap: 40px;
             }
         }
 
@@ -650,13 +819,12 @@
 
             .hero-landscape {
                 grid-template-columns: 1fr;
-                gap: 24px;
+                gap: 30px;
             }
 
             .hero-left {
                 position: relative;
                 top: 0;
-                max-width: 300px;
             }
 
             .gallery-masonry {
@@ -670,6 +838,10 @@
             .skill-list {
                 grid-template-columns: 1fr;
                 gap: 0;
+            }
+
+            .article-title {
+                font-size: 26px;
             }
         }
 
@@ -730,7 +902,6 @@
                 <div class="tabs" id="tabs">
                     <button class="tab-btn active" data-page="home">Home</button>
                     <button class="tab-btn" data-page="biodata">Biodata</button>
-                    <button class="tab-btn" data-page="tentang">Tentang</button>
                     <button class="tab-btn" data-page="keahlian">Keahlian</button>
                     <button class="tab-btn" data-page="galeri">Galeri</button>
                     <button class="tab-btn" data-page="kontak">Kontak</button>
@@ -743,16 +914,20 @@
     <section class="page active" id="page-home">
         <div class="container">
             <div class="hero-landscape">
-                <!-- KIRI: FOTO -->
+                <!-- KIRI: FOTO BULAT + NAMA + STATUS -->
                 <div class="hero-left">
-                    <img src="49abbb97d768ad1bff0963bf66ff55d8.jpeg" alt="Nur Dwi Nova Pramajaya" class="hero-photo" />
-                    <div class="hero-status">SMK Negeri 1 Cirebon</div>
+                    <div class="hero-top">
+                        <img src="49abbb97d768ad1bff0963bf66ff55d8.jpeg" alt="Nur Dwi Nova Pramajaya" class="hero-photo" />
+                        <div class="hero-info">
+                            <div class="hero-status">SMK Negeri 1 Cirebon</div>
+                            <h2 class="hero-name">Nur Dwi Nova Pramajaya</h2>
+                            <p class="hero-role">Siswa Teknik Jaringan Komputer dan Telekomunikasi</p>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- KANAN: INFO -->
                 <div class="hero-right">
-                    <h1>Nur Dwi Nova<br />Pramajaya</h1>
-                    <p class="hero-role">Siswa Teknik Jaringan Komputer dan Telekomunikasi</p>
                     <p class="hero-desc">
                         Saya seorang siswa <span class="hl">Teknik Jaringan Komputer dan Telekomunikasi</span> 
                         di <span class="hl">SMK Negeri 1 Cirebon</span>. Saya sedang belajar tentang 
@@ -760,7 +935,6 @@
                         Saya percaya bahwa <span class="hl">belajar hari ini</span> adalah investasi untuk masa depan.
                     </p>
 
-                    <!-- CTA -->
                     <div class="hero-cta">
                         <button class="btn-primary" onclick="showPage('kontak')">
                             <i class="fas fa-envelope"></i> Hubungi Saya
@@ -770,7 +944,6 @@
                         </button>
                     </div>
 
-                    <!-- STATS -->
                     <div class="stats">
                         <div class="stat-item">
                             <div class="stat-num">3+</div>
@@ -790,44 +963,270 @@
                         </div>
                     </div>
 
-                    <!-- EXPERTISE -->
                     <h2 class="home-section-title">Bidang Keahlian</h2>
                     <div class="expertise-grid">
-                        <div class="expertise-item">
+                        <div class="expertise-item" onclick="openArticle('jaringan')">
                             <div class="expertise-icon"><i class="fas fa-network-wired"></i></div>
                             <div class="expertise-info">
                                 <h4>Jaringan Komputer</h4>
                                 <p>Routing, Switching, Konfigurasi</p>
                             </div>
+                            <i class="fas fa-arrow-right arrow-icon"></i>
                         </div>
-                        <div class="expertise-item">
+                        <div class="expertise-item" onclick="openArticle('konfigurasi')">
                             <div class="expertise-icon"><i class="fas fa-wifi"></i></div>
                             <div class="expertise-info">
                                 <h4>Konfigurasi Jaringan</h4>
                                 <p>Router & Access Point</p>
                             </div>
+                            <i class="fas fa-arrow-right arrow-icon"></i>
                         </div>
-                        <div class="expertise-item">
+                        <div class="expertise-item" onclick="openArticle('web')">
                             <div class="expertise-icon"><i class="fas fa-code"></i></div>
                             <div class="expertise-info">
                                 <h4>Web Development</h4>
                                 <p>HTML, CSS, JavaScript</p>
                             </div>
+                            <i class="fas fa-arrow-right arrow-icon"></i>
                         </div>
-                        <div class="expertise-item">
+                        <div class="expertise-item" onclick="openArticle('cyber')">
                             <div class="expertise-icon"><i class="fas fa-shield-alt"></i></div>
                             <div class="expertise-info">
                                 <h4>Cyber Security</h4>
                                 <p>Keamanan Jaringan & Data</p>
                             </div>
+                            <i class="fas fa-arrow-right arrow-icon"></i>
                         </div>
                     </div>
 
-                    <!-- QUOTE -->
                     <div class="home-quote">
                         "Terus melangkah meski berat, sampai mencapai garis akhir."
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PAGE: ARTIKEL JARINGAN ===== -->
+    <section class="page" id="page-artikel-jaringan">
+        <div class="container">
+            <button class="article-back" onclick="showPage('home')">
+                <i class="fas fa-arrow-left"></i> Kembali
+            </button>
+
+            <h1 class="article-title">Jaringan Komputer</h1>
+            <p class="article-meta">Bidang Keahlian • Teknik Jaringan Komputer</p>
+
+            <div class="article-cover">
+                <i class="fas fa-network-wired"></i>
+            </div>
+
+            <div class="article-content">
+                <p>
+                    Jaringan komputer adalah sistem yang menghubungkan dua atau lebih
+                    perangkat komputer agar dapat saling berkomunikasi dan berbagi sumber daya.
+                    Jaringan memungkinkan pertukaran data, penggunaan perangkat bersama
+                    seperti printer, serta akses internet yang lebih efisien.
+                </p>
+
+                <h3>Jenis-Jenis Jaringan</h3>
+                <ul>
+                    <li><strong>LAN (Local Area Network)</strong> — jaringan untuk area kecil seperti sekolah atau kantor.</li>
+                    <li><strong>MAN (Metropolitan Area Network)</strong> — jaringan untuk area kota.</li>
+                    <li><strong>WAN (Wide Area Network)</strong> — jaringan untuk area luas antar negara.</li>
+                    <li><strong>Internet</strong> — jaringan global yang menghubungkan seluruh dunia.</li>
+                </ul>
+
+                <h3>Komponen Utama</h3>
+                <p>
+                    Dalam membangun jaringan, dibutuhkan beberapa komponen seperti
+                    router, switch, kabel, dan perangkat wireless access point.
+                    Masing-masing memiliki fungsi berbeda untuk memastikan
+                    data dapat mengalir dengan lancar.
+                </p>
+
+                <h3>Routing dan Switching</h3>
+                <p>
+                    Routing adalah proses menentukan jalur terbaik untuk mengirim data,
+                    sedangkan switching adalah proses mengarahkan data ke perangkat
+                    yang tepat dalam jaringan lokal. Keduanya adalah konsep dasar
+                    yang wajib dipahami seorang network engineer.
+                </p>
+
+                <h3>Mengapa Saya Mempelajari Ini?</h3>
+                <p>
+                    Saya mempelajari jaringan komputer karena saya percaya bahwa
+                    dunia modern ini bergantung pada konektivitas. Dengan memahami
+                    jaringan, saya dapat ikut berkontribusi dalam membangun
+                    infrastruktur digital yang lebih baik.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PAGE: ARTIKEL KONFIGURASI ===== -->
+    <section class="page" id="page-artikel-konfigurasi">
+        <div class="container">
+            <button class="article-back" onclick="showPage('home')">
+                <i class="fas fa-arrow-left"></i> Kembali
+            </button>
+
+            <h1 class="article-title">Konfigurasi Jaringan</h1>
+            <p class="article-meta">Bidang Keahlian • Router & Access Point</p>
+
+            <div class="article-cover">
+                <i class="fas fa-wifi"></i>
+            </div>
+
+            <div class="article-content">
+                <p>
+                    Konfigurasi jaringan adalah proses pengaturan perangkat jaringan
+                    agar dapat berfungsi dengan baik. Ini meliputi pengaturan router,
+                    access point, switch, dan perangkat lain agar dapat saling
+                    terhubung dan berkomunikasi.
+                </p>
+
+                <h3>Perangkat yang Sering Dikonfigurasi</h3>
+                <ul>
+                    <li><strong>Router</strong> — mengatur lalu lintas data antar jaringan.</li>
+                    <li><strong>Access Point</strong> — menyediakan koneksi nirkabel (WiFi).</li>
+                    <li><strong>Switch</strong> — menghubungkan beberapa perangkat dalam satu jaringan lokal.</li>
+                    <li><strong>Firewall</strong> — melindungi jaringan dari akses yang tidak diinginkan.</li>
+                </ul>
+
+                <h3>Hal yang Dipelajari</h3>
+                <p>
+                    Dalam konfigurasi jaringan, saya belajar tentang pengalamatan IP,
+                    subnetting, routing, VLAN, dan pengaturan keamanan dasar.
+                    Semua ini adalah pondasi yang penting untuk membangun
+                    jaringan yang stabil dan aman.
+                </p>
+
+                <h3>Tools yang Digunakan</h3>
+                <p>
+                    Beberapa tools yang sering saya gunakan untuk simulasi dan
+                    praktik antara lain MikroTik, Cisco Packet Tracer, dan
+                    perangkat jaringan asli di laboratorium sekolah.
+                </p>
+
+                <h3>Mengapa Ini Penting?</h3>
+                <p>
+                    Tanpa konfigurasi yang tepat, jaringan tidak akan berjalan
+                    dengan optimal. Kesalahan kecil dalam konfigurasi bisa
+                    menyebabkan seluruh jaringan bermasalah. Karena itu,
+                    ketelitian dan pemahaman konsep sangat penting.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PAGE: ARTIKEL WEB ===== -->
+    <section class="page" id="page-artikel-web">
+        <div class="container">
+            <button class="article-back" onclick="showPage('home')">
+                <i class="fas fa-arrow-left"></i> Kembali
+            </button>
+
+            <h1 class="article-title">Web Development</h1>
+            <p class="article-meta">Bidang Keahlian • HTML, CSS, JavaScript</p>
+
+            <div class="article-cover">
+                <i class="fas fa-code"></i>
+            </div>
+
+            <div class="article-content">
+                <p>
+                    Web development adalah proses membangun dan memelihara website.
+                    Ini mencakup berbagai aspek, mulai dari tampilan (frontend)
+                    hingga logika di balik layar (backend).
+                </p>
+
+                <h3>Tiga Pondasi Utama</h3>
+                <ul>
+                    <li><strong>HTML</strong> — struktur dasar halaman web.</li>
+                    <li><strong>CSS</strong> — mengatur tampilan dan desain.</li>
+                    <li><strong>JavaScript</strong> — menambahkan interaksi dan logika.</li>
+                </ul>
+
+                <h3>Apa yang Saya Pelajari</h3>
+                <p>
+                    Saya mempelajari dasar-dasar HTML dan CSS untuk membangun
+                    tampilan website yang rapi dan responsif. Selain itu,
+                    saya juga belajar JavaScript untuk menambahkan interaksi
+                    pada halaman web.
+                </p>
+
+                <h3>Praktik yang Dilakukan</h3>
+                <p>
+                    Saya membuat beberapa proyek kecil seperti website profil,
+                    halaman portofolio, dan eksperimen dengan animasi CSS.
+                    Website yang sedang Anda lihat ini adalah salah satu
+                    hasil dari pembelajaran saya.
+                </p>
+
+                <h3>Visi ke Depan</h3>
+                <p>
+                    Ke depannya, saya ingin mendalami frontend framework seperti
+                    React atau Vue, serta backend seperti Node.js, agar dapat
+                    membangun aplikasi web yang lebih kompleks dan bermanfaat.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PAGE: ARTIKEL CYBER ===== -->
+    <section class="page" id="page-artikel-cyber">
+        <div class="container">
+            <button class="article-back" onclick="showPage('home')">
+                <i class="fas fa-arrow-left"></i> Kembali
+            </button>
+
+            <h1 class="article-title">Cyber Security</h1>
+            <p class="article-meta">Bidang Keahlian • Keamanan Jaringan & Data</p>
+
+            <div class="article-cover">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+
+            <div class="article-content">
+                <p>
+                    Cyber security adalah praktik melindungi sistem, jaringan,
+                    dan data dari serangan digital. Di era yang serba terhubung
+                    seperti sekarang, keamanan siber menjadi salah satu bidang
+                    yang paling penting dan terus berkembang.
+                </p>
+
+                <h3>Ancaman Umum</h3>
+                <ul>
+                    <li><strong>Malware</strong> — perangkat lunak berbahaya seperti virus dan trojan.</li>
+                    <li><strong>Phishing</strong> — penipuan untuk mencuri data pribadi.</li>
+                    <li><strong>DDoS</strong> — serangan yang membuat server tidak bisa diakses.</li>
+                    <li><strong>SQL Injection</strong> — serangan pada database website.</li>
+                </ul>
+
+                <h3>Dasar-Dasar yang Dipelajari</h3>
+                <p>
+                    Saya mempelajari konsep dasar keamanan seperti enkripsi,
+                    autentikasi, firewall, dan manajemen akses. Saya juga
+                    belajar bagaimana mengidentifikasi celah keamanan
+                    dan cara menanganinya.
+                </p>
+
+                <h3>Praktik Etis</h3>
+                <p>
+                    Dalam mempelajari keamanan siber, etika adalah hal utama.
+                    Semua pengetahuan yang saya pelajari digunakan untuk
+                    tujuan yang baik — melindungi, bukan merusak.
+                </p>
+
+                <h3>Mengapa Saya Tertarik?</h3>
+                <p>
+                    Saya tertarik pada keamanan siber karena bidang ini
+                    membutuhkan pola pikir yang tajam, ketelitian, dan
+                    keinginan untuk terus belajar. Ancaman siber terus
+                    berkembang, dan saya ingin menjadi bagian dari
+                    solusi, bukan masalah.
+                </p>
             </div>
         </div>
     </section>
@@ -864,37 +1263,6 @@
                     <span class="bio-label">Hobi</span>
                     <span class="bio-value">Running</span>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== PAGE: TENTANG ===== -->
-    <section class="page" id="page-tentang">
-        <div class="container">
-            <h2 class="page-title">Tentang Saya</h2>
-            <p class="page-sub">Kenali lebih dekat</p>
-            <div class="divider"></div>
-
-            <p class="about-p">
-                Halo, saya <span class="hl">Nur Dwi Nova Pramajaya</span>.
-                Seorang siswa kelas <span class="hl">XI TJKT 2</span> di
-                <span class="hl">SMK Negeri 1 Cirebon</span>, dengan fokus pada
-                <span class="hl">Teknik Jaringan Komputer dan Telekomunikasi</span>.
-            </p>
-            <p class="about-p">
-                Ketertarikan saya terhadap dunia teknologi dimulai dari rasa penasaran
-                tentang bagaimana perangkat saling terhubung dan berkomunikasi.
-                Kini, saya mendalami <span class="hl">jaringan komputer</span>,
-                konfigurasi perangkat, serta <span class="hl">keamanan siber</span>.
-            </p>
-            <p class="about-p">
-                Di luar teknologi, saya memiliki hobi <span class="hl">berlari</span>.
-                Setiap langkah mengajarkan saya tentang <span class="hl">kedisiplinan,
-                ketahanan, dan konsistensi</span>.
-            </p>
-
-            <div class="about-quote">
-                "Terus melangkah meski berat, sampai mencapai garis akhir."
             </div>
         </div>
     </section>
@@ -942,36 +1310,36 @@
         </div>
     </section>
 
-    <!-- ===== PAGE: GALERI (MASONRY) ===== -->
+    <!-- ===== PAGE: GALERI ===== -->
     <section class="page" id="page-galeri">
         <div class="container">
             <h2 class="page-title">Galeri</h2>
-            <p class="page-sub">Koleksi foto</p>
+            <p class="page-sub">Klik foto untuk melihat lebih besar</p>
             <div class="divider"></div>
 
             <div class="gallery-masonry">
-                <div class="gallery-item">
+                <div class="gallery-item" onclick="openLightbox(this)">
                     <img src="IMG-20240913-WA0002.jpg" alt="Foto" />
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" onclick="openLightbox(this)">
                     <img src="IMG-20260517-WA0069.jpg" alt="Foto" />
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" onclick="openLightbox(this)">
                     <img src="IMG-20260420-WA0023.jpg" alt="Foto" />
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" onclick="openLightbox(this)">
                     <img src="IMG_20230625_075920.jpg" alt="Foto" />
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" onclick="openLightbox(this)">
                     <img src="IMG_20231223_145952.jpg" alt="Foto" />
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" onclick="openLightbox(this)">
                     <img src="IMG_20260426_085559_HDR.jpg" alt="Foto" />
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" onclick="openLightbox(this)">
                     <img src="49abbb97d768ad1bff0963bf66ff55d8.jpeg" alt="Foto" />
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" onclick="openLightbox(this)">
                     <img src="IMG-20240913-WA0002.jpg" alt="Foto" />
                 </div>
             </div>
@@ -1008,6 +1376,14 @@
         <p>&copy; 2026 Nur Dwi Nova Pramajaya</p>
     </footer>
 
+    <!-- ===== LIGHTBOX ===== -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <button class="lightbox-close" onclick="closeLightbox()">
+            <i class="fas fa-times"></i>
+        </button>
+        <img src="" alt="Foto" id="lightbox-img" onclick="event.stopPropagation()" />
+    </div>
+
     <script>
         // ===== TAB NAVIGASI =====
         const allTabs = document.querySelectorAll('.tab-btn');
@@ -1037,6 +1413,11 @@
             tab.addEventListener('click', () => showPage(tab.dataset.page));
         });
 
+        // ===== BUKA ARTIKEL =====
+        function openArticle(topic) {
+            showPage('artikel-' + topic);
+        }
+
         // ===== SKILL ANIMATION =====
         function animateSkill() {
             document.querySelectorAll('.skill-fill').forEach(bar => {
@@ -1049,6 +1430,32 @@
 
         window.addEventListener('load', () => {
             setTimeout(animateSkill, 200);
+        });
+
+        // ===== LIGHTBOX =====
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        function openLightbox(item) {
+            const img = item.querySelector('img');
+            if (img) {
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+            lightboxImg.src = '';
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
         });
     </script>
 
