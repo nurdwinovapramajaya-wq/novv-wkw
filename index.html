@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="google-site-verification" content="IV_IqFC-M4tCbwkt-PTtIVr3tttLzL9dqO3evfJuBp0" />
-<title>Nova Pramajaya — Siswa TKJ</title>
+<title>Nova Pramajaya | Potofolio</title>
 <meta name="description" content="Portofolio Nur Dwi Nova Pramajaya, siswa XI TJKT 2 SMKN 1 Cirebon." />
 <link rel="icon" href="https://img.icons8.com/color/48/moon-satellite.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -17,22 +17,18 @@
    1. VARIABEL WARNA DAN FONT
    ═══════════════════════════════════════════════════════════ */
 :root {
-  /* Warna latar */
   --bg: #0b0f1a;
   --bg-2: #121828;
   --bg-3: #1a2138;
   --bg-4: #242c46;
 
-  /* Warna teks */
   --ink: #ece6d3;
   --ink-2: #a8a495;
   --ink-3: #6b6759;
 
-  /* Warna garis */
   --line: #1e2740;
   --line-2: #2e3a5c;
 
-  /* Warna aksen */
   --glow: #e8b352;
   --glow-2: #f5cf7a;
   --moon: #8b9bda;
@@ -40,15 +36,12 @@
   --green: #6dbd8a;
   --red: #e05252;
 
-  /* Font */
   --font-serif: 'Fraunces', Georgia, serif;
   --font-sans: 'Inter', -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 
-  /* Bayangan */
   --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 32px rgba(0,0,0,0.35);
 
-  /* Ukuran */
   --sidebar-w: 260px;
   --pad-x: 56px;
 }
@@ -83,7 +76,6 @@ body {
   padding: 0;
 }
 
-/* Efek cahaya lampu di sudut kanan atas */
 body::before {
   content: '';
   position: fixed;
@@ -96,7 +88,6 @@ body::before {
   z-index: 0;
 }
 
-/* Efek cahaya ungu di sudut kiri bawah */
 body::after {
   content: '';
   position: fixed;
@@ -110,7 +101,7 @@ body::after {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   3. SIDEBAR — posisi fixed, selalu menempel di kiri
+   3. SIDEBAR
    ═══════════════════════════════════════════════════════════ */
 .sidebar {
   position: fixed;
@@ -130,7 +121,6 @@ body::after {
   z-index: 50;
 }
 
-/* Foto profil + nama di atas sidebar */
 .sb-brand {
   display: flex;
   align-items: center;
@@ -156,7 +146,6 @@ body::after {
   z-index: 1;
 }
 
-/* Cincin warna muter di sekeliling foto */
 .sb-photo-wrap::after {
   content: '';
   position: absolute;
@@ -240,7 +229,6 @@ body::after {
   50% { opacity: 0.35; }
 }
 
-/* Menu navigasi */
 .sb-nav {
   list-style: none;
   display: flex;
@@ -319,7 +307,7 @@ body::after {
 .sb-foot strong { color: var(--ink-2); font-weight: 500; }
 
 /* ═══════════════════════════════════════════════════════════
-   4. MAIN — margin-left sebesar sidebar, jadi isi penuh sisa layar
+   4. MAIN
    ═══════════════════════════════════════════════════════════ */
 .main {
   margin-left: var(--sidebar-w);
@@ -332,7 +320,7 @@ body::after {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   5. HALAMAN — show/hide
+   5. HALAMAN
    ═══════════════════════════════════════════════════════════ */
 .page {
   display: none;
@@ -408,7 +396,7 @@ body::after {
 .pg-desc strong { color: var(--ink); font-weight: 500; }
 
 /* ═══════════════════════════════════════════════════════════
-   7. HOME — hero
+   7. HOME HERO
    ═══════════════════════════════════════════════════════════ */
 .hero-grid {
   display: grid;
@@ -459,7 +447,6 @@ body::after {
   margin-top: 28px;
 }
 
-/* Tombol */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -577,7 +564,7 @@ body::after {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   9. SECTION DI BERANDA
+   9. SECTION
    ═══════════════════════════════════════════════════════════ */
 .sec-block {
   margin-bottom: 60px;
@@ -623,7 +610,7 @@ body::after {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   10. KARTU TOPIK (4 bidang yang dipelajari)
+   10. KARTU TOPIK
    ═══════════════════════════════════════════════════════════ */
 .topic-list {
   display: flex;
@@ -1046,7 +1033,7 @@ body::after {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   15. HALAMAN ARTIKEL
+   15. ARTIKEL
    ═══════════════════════════════════════════════════════════ */
 .art-back {
   display: inline-flex;
@@ -1273,7 +1260,7 @@ body::after {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   18. LIGHTBOX (untuk galeri)
+   18. LIGHTBOX
    ═══════════════════════════════════════════════════════════ */
 .lightbox {
   display: none;
@@ -1349,7 +1336,7 @@ body::after {
 img { max-width: 100%; height: auto; }
 
 /* ═══════════════════════════════════════════════════════════
-   19. RESPONSIVE — HP dan tablet
+   19. RESPONSIVE — PERBAIKAN UNTUK HP
    ═══════════════════════════════════════════════════════════ */
 @media (max-width: 1100px) {
   :root {
@@ -1361,9 +1348,10 @@ img { max-width: 100%; height: auto; }
 @media (max-width: 900px) {
   :root {
     --sidebar-w: 0px;
-    --pad-x: 20px;
+    --pad-x: 18px;
   }
 
+  /* Sidebar jadi header di atas, JAM TETAP MUNCUL */
   .sidebar {
     position: fixed;
     top: 0;
@@ -1372,40 +1360,68 @@ img { max-width: 100%; height: auto; }
     bottom: auto;
     width: 100%;
     height: auto;
+    max-height: 140px;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    gap: 12px;
-    padding: 14px 18px;
+    gap: 10px;
+    padding: 12px 16px;
     border-right: none;
     border-bottom: 1px solid var(--line);
+    overflow: visible;
   }
 
+  /* Brand (foto + nama) */
   .sb-brand {
     margin-bottom: 0;
     padding-bottom: 0;
     border-bottom: none;
-    flex: 1;
+    flex: 0 0 auto;
+    gap: 10px;
+  }
+  .sb-photo { width: 36px; height: 36px; }
+  .sb-name { font-size: 13px; }
+  .sb-name span { font-size: 9px; margin-top: 2px; }
+
+  /* JAM di HP — tetap muncul, tapi versi compact */
+  .sb-clock {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 0;
+    padding: 6px 10px;
+    background: var(--bg-3);
+    border-radius: 20px;
+    margin-left: auto;
+  }
+  .sb-clock-lbl { display: none; }
+  .sb-clock-status { display: none; }
+  .sb-clock-time {
+    font-size: 13px;
+    text-shadow: none;
+    letter-spacing: 0.02em;
   }
 
-  .sb-clock, .sb-foot { display: none; }
+  .sb-foot { display: none; }
 
+  /* Menu jadi horizontal scroll */
   .sb-nav {
     flex-direction: row;
     overflow-x: auto;
     flex: 100%;
     gap: 4px;
-    padding-top: 12px;
+    padding-top: 10px;
     border-top: 1px solid var(--line);
     scrollbar-width: none;
+    -ms-overflow-style: none;
   }
 
   .sb-nav::-webkit-scrollbar { display: none; }
 
   .sb-nav li a {
     white-space: nowrap;
-    padding: 8px 12px;
-    font-size: 12.5px;
+    padding: 7px 12px;
+    font-size: 12px;
     border: 1px solid transparent;
   }
 
@@ -1416,11 +1432,13 @@ img { max-width: 100%; height: auto; }
 
   .sb-nav li a.active::before { display: none; }
   .sb-nav li a .num { display: none; }
+  .sb-nav li a i { font-size: 11px; }
 
+  /* Main content diberi padding-top agar tidak ketutup header */
   .main {
     margin-left: 0;
     width: 100%;
-    padding: 130px 20px 60px;
+    padding: 130px 18px 60px;
   }
 
   .hero-grid { grid-template-columns: 1fr; gap: 30px; }
@@ -1448,7 +1466,8 @@ img { max-width: 100%; height: auto; }
 }
 
 @media (max-width: 640px) {
-  .main { padding: 120px 16px 50px; }
+  .sidebar { padding: 10px 14px; }
+  .main { padding: 118px 14px 50px; }
   .hero-lede { font-size: 20px; }
   .pg-title { font-size: 26px; }
   .sec-title { font-size: 22px; }
@@ -1480,7 +1499,12 @@ img { max-width: 100%; height: auto; }
 }
 
 @media (max-width: 480px) {
-  .main { padding: 110px 14px 44px; }
+  .sb-photo { width: 32px; height: 32px; }
+  .sb-name { font-size: 12px; }
+  .sb-name span { display: none; }
+  .sb-clock-time { font-size: 12px; padding: 5px 8px; }
+
+  .main { padding: 112px 14px 44px; }
   .pg-title { font-size: 22px; }
   .hero-lede { font-size: 18px; }
 
@@ -1500,7 +1524,6 @@ img { max-width: 100%; height: auto; }
      ═══════════════════════════════════════════════════ -->
 <aside class="sidebar">
 
-  <!-- Foto + nama -->
   <div class="sb-brand">
     <div class="sb-photo-wrap">
       <img src="49abbb97d768ad1bff0963bf66ff55d8.jpeg" alt="Nova" class="sb-photo" />
@@ -1511,14 +1534,13 @@ img { max-width: 100%; height: auto; }
     </div>
   </div>
 
-  <!-- Kotak jam -->
+  <!-- Kotak jam — sekarang tampil di HP juga (versi compact) -->
   <div class="sb-clock">
     <div class="sb-clock-lbl">Waktu lokal</div>
     <div class="sb-clock-time" id="clock">--:--:--</div>
     <div class="sb-clock-status">sedang online</div>
   </div>
 
-  <!-- Menu navigasi -->
   <ul class="sb-nav" id="sbNav">
     <li><a data-page="home" class="active"><i class="fas fa-house"></i>Beranda<span class="num">01</span></a></li>
     <li><a data-page="biodata"><i class="fas fa-id-badge"></i>Biodata<span class="num">02</span></a></li>
@@ -1527,7 +1549,6 @@ img { max-width: 100%; height: auto; }
     <li><a data-page="kontak"><i class="fas fa-paper-plane"></i>Kontak<span class="num">05</span></a></li>
   </ul>
 
-  <!-- Info bawah -->
   <div class="sb-foot">
     <strong>Siswa SMKN 1 Cirebon</strong><br>
     Diperbarui Okt 2026
@@ -1535,7 +1556,7 @@ img { max-width: 100%; height: auto; }
 </aside>
 
 <!-- ═══════════════════════════════════════════════════
-     MAIN — semua halaman ada di dalam sini
+     MAIN
      ═══════════════════════════════════════════════════ -->
 <main class="main">
 
@@ -1550,8 +1571,6 @@ img { max-width: 100%; height: auto; }
     </header>
 
     <div class="hero-grid">
-
-      <!-- Kiri: teks -->
       <div>
         <p class="hero-lede">
           Saya <em>Nur Dwi Nova Pramajaya</em>.
@@ -1570,14 +1589,12 @@ img { max-width: 100%; height: auto; }
         </div>
       </div>
 
-      <!-- Kanan: kartu pelajar -->
       <aside class="id-card">
         <div class="id-head">
           <div class="dot-id"></div>
           <span>Kartu Pelajar</span>
         </div>
         <div class="id-row"><span>Nama</span><span>Nur Dwi Nova Pramajaya</span></div>
-        <div class="id-row"><span>Panggilan</span><span>Nova</span></div>
         <div class="id-row"><span>TTL</span><span>Kuningan, 30 Nov 2009</span></div>
         <div class="id-row"><span>Umur</span><span>16 tahun</span></div>
         <div class="id-row"><span>Sekolah</span><span>SMKN 1 Cirebon</span></div>
@@ -1586,7 +1603,6 @@ img { max-width: 100%; height: auto; }
       </aside>
     </div>
 
-    <!-- Bagian yang sedang dipelajari -->
     <section class="sec-block">
       <div class="sec-num">Bagian 01</div>
       <h2 class="sec-title">Yang sedang saya <em>pelajari</em></h2>
@@ -1623,8 +1639,8 @@ img { max-width: 100%; height: auto; }
         <div class="topic" onclick="goto('linux')">
           <div class="topic-num">04</div>
           <div class="topic-info">
-            <h4>Linux Dasar <small>eksperimen</small></h4>
-            <p>Install Lubuntu di laptop bekas. Gagal 2 kali, berhasil di percobaan ke-3.</p>
+            <h4>Linux Server <small>praktik bersama guru</small></h4>
+            <p>Debian di VMware, mode CLI. Belajar konfigurasi server bareng guru.</p>
           </div>
           <i class="fas fa-arrow-up-right-from-square topic-go"></i>
         </div>
@@ -1653,7 +1669,6 @@ img { max-width: 100%; height: auto; }
       <div>
         <div class="data-grid">
           <div class="data-item"><div class="data-key">Nama lengkap</div><div class="data-val">Nur Dwi Nova Pramajaya</div></div>
-          <div class="data-item"><div class="data-key">Panggilan</div><div class="data-val">Nova</div></div>
           <div class="data-item"><div class="data-key">TTL</div><div class="data-val">Kuningan, 30 November 2009</div></div>
           <div class="data-item"><div class="data-key">Umur</div><div class="data-val">16 tahun</div></div>
           <div class="data-item"><div class="data-key">Sekolah</div><div class="data-val">SMK Negeri 1 Cirebon</div></div>
@@ -1704,10 +1719,10 @@ img { max-width: 100%; height: auto; }
 
     <div class="skill-block">
       <div class="skill-head">
-        <h3><i class="fas fa-terminal"></i>Linux Dasar</h3>
+        <h3><i class="fas fa-server"></i>Linux Server Dasar</h3>
         <span class="skill-lvl mid">Sedang mendalami</span>
       </div>
-      <p class="skill-note">Pernah install <strong>Lubuntu</strong> di laptop bekas dan dipakai untuk aktivitas sehari-hari. Paham perintah dasar terminal, tapi belum sampai level administrasi sistem.</p>
+      <p class="skill-note">Praktik Linux di sekolah. Pakai <strong>Debian</strong> yang di-install di VMware dengan mode CLI. Belajar konfigurasi <strong>IP static dan DHCP</strong>, install <strong>SSH</strong>, install <strong>FTP</strong>, dan konfigurasi Debian server untuk <strong>WordPress</strong>. Masih tahap belajar — banyak yang harus diulang.</p>
     </div>
 
     <div class="art-note">Semua masih dalam proses. Kalau nanti sudah lebih mahir, halaman ini akan diperbarui.</div>
@@ -1719,18 +1734,60 @@ img { max-width: 100%; height: auto; }
       <div class="stamp"><i class="fas fa-circle"></i>Foto</div>
       <div class="crumb">Halaman 04 / Galeri</div>
       <h1 class="pg-title">Galeri <em>kegiatan</em>.</h1>
-      <p class="pg-desc">Foto-foto waktu praktik di sekolah atau ngulik di rumah. Klik untuk memperbesar.</p>
+      <p class="pg-desc">Kumpulan foto — kegiatan sekolah, momen bareng teman, dan hal-hal sehari-hari. Klik untuk memperbesar.</p>
     </header>
 
     <div class="gallery-grid">
-      <div class="gal-item" onclick="openLb(this)" data-cap="Praktik pertama di lab"><span class="gal-num">01</span><img src="IMG-20240913-WA0002.jpg" alt="" /><span class="gal-cap">Praktik pertama</span></div>
-      <div class="gal-item" onclick="openLb(this)" data-cap="Di lab komputer"><span class="gal-num">02</span><img src="IMG-20260517-WA0069.jpg" alt="" /><span class="gal-cap">Di lab komputer</span></div>
-      <div class="gal-item" onclick="openLb(this)" data-cap="Kerja kelompok"><span class="gal-num">03</span><img src="IMG-20260420-WA0023.jpg" alt="" /><span class="gal-cap">Kerja kelompok</span></div>
-      <div class="gal-item" onclick="openLb(this)" data-cap="Berangkat sekolah pagi"><span class="gal-num">04</span><img src="IMG_20230625_075920.jpg" alt="" /><span class="gal-cap">Pagi sekolah</span></div>
-      <div class="gal-item" onclick="openLb(this)" data-cap="Sore di rumah"><span class="gal-num">05</span><img src="IMG_20231223_145952.jpg" alt="" /><span class="gal-cap">Sore hari</span></div>
-      <div class="gal-item" onclick="openLb(this)" data-cap="Belajar malam"><span class="gal-num">06</span><img src="IMG_20250412_212008.jpg" alt="" /><span class="gal-cap">Belajar malam</span></div>
-      <div class="gal-item" onclick="openLb(this)" data-cap="Kegiatan sekolah"><span class="gal-num">07</span><img src="IMG-20260731-WA0037.jpg" alt="" /><span class="gal-cap">Kegiatan sekolah</span></div>
-      <div class="gal-item" onclick="openLb(this)" data-cap="Lagi praktik"><span class="gal-num">08</span><img src="IMG-20240913-WA0002.jpg" alt="" /><span class="gal-cap">Lagi praktik</span></div>
+      <div class="gal-item" onclick="openLb(this)" data-cap="Foto pertama di galeri">
+        <span class="gal-num">01</span>
+        <img src="IMG-20240913-WA0002.jpg" alt="" />
+        <span class="gal-cap">Foto SD</span>
+      </div>
+      <div class="gal-item" onclick="openLb(this)" data-cap="Bareng teman-teman">
+        <span class="gal-num">02</span>
+        <img src="IMG-20260517-WA0069.jpg" alt="" />
+        <span class="gal-cap">Foto SMP</span>
+      </div>
+      <div class="gal-item" onclick="openLb(this)" data-cap="Momen santai">
+        <span class="gal-num">03</span>
+        <img src="IMG-20260420-WA0023.jpg" alt="" />
+        <span class="gal-cap">Foto SMK</span>
+      </div>
+      <div class="gal-item" onclick="openLb(this)" data-cap="Pagi hari">
+        <span class="gal-num">04</span>
+        <img src="IMG_20230625_075920.jpg" alt="" />
+        <span class="gal-cap">Foto TOP 3 Rank kelas</span>
+      </div>
+      <div class="gal-item" onclick="openLb(this)" data-cap="Sore hari">
+        <span class="gal-num">05</span>
+        <img src="IMG_20231223_145952.jpg" alt="" />
+        <span class="gal-cap">Foto Rank 2 kelas</span>
+      </div>
+      <div class="gal-item" onclick="openLb(this)" data-cap="Malam hari">
+        <span class="gal-num">06</span>
+        <img src="IMG_20250412_212008.jpg" alt="" />
+        <span class="gal-cap">Foto bersama sahabat sd</span>
+      </div>
+      <div class="gal-item" onclick="openLb(this)" data-cap="Kegiatan seru">
+        <span class="gal-num">07</span>
+        <img src="IMG-20260731-WA0037.jpg" alt="" />
+        <span class="gal-cap">Foto bersama fixlolos</span>
+      </div>
+      <div class="gal-item" onclick="openLb(this)" data-cap="Salah satu momen">
+        <span class="gal-num">08</span>
+        <img src="IMG-20260518-WA0045.jpg" alt="" />
+        <span class="gal-cap">Praktik membangun jaringan LAB6</span>
+      </div>
+      <div class="gal-item" onclick="openLb(this)" data-cap="Salah satu momen">
+        <span class="gal-num">08</span>
+        <img src="" alt="IMG-20260818-WA0046.jpg" />
+        <span class="gal-cap">Praktik memamasang Telepon PABX</span>
+      </div>
+      <div class="gal-item" onclick="openLb(this)" data-cap="Salah satu momen">
+        <span class="gal-num">08</span>
+        <img src="IMG-20260903-WA0212.jpg" alt="" />
+        <span class="gal-cap">Praktik manjat tower</span>
+      </div>
     </div>
 
     <div class="art-note" style="margin-top:36px">Galeri ini akan diisi terus seiring waktu. Untuk mengganti foto, cukup timpa file gambar — nama file biarkan sama.</div>
@@ -1860,33 +1917,36 @@ img { max-width: 100%; height: auto; }
     </div>
   </section>
 
-  <!-- ═══════════ HALAMAN: ARTIKEL LINUX ═══════════ -->
+  <!-- ═══════════ HALAMAN: ARTIKEL LINUX (VERSI BARU) ═══════════ -->
   <section class="page" id="page-linux">
     <button class="art-back" onclick="goto('home')"><i class="fas fa-arrow-left"></i> Kembali ke beranda</button>
     <header class="pg-head">
       <div class="crumb">Catatan / 04</div>
-      <h1 class="pg-title">Linux <em>Dasar</em>.</h1>
-      <p class="pg-desc">Dari laptop bekas yang hampir dijual.</p>
+      <h1 class="pg-title">Linux <em>Server</em>.</h1>
+      <p class="pg-desc">Praktik Linux di sekolah.</p>
     </header>
-    <p class="art-meta"><span class="tag">Bidang 04</span>Eksperimen iseng di rumah, akhirnya jadi berguna.</p>
+    <p class="art-meta"><span class="tag">Bidang 04</span>Debian di VMware, mode CLI.</p>
 
     <div class="art-body">
-      <p>Kakak saya punya laptop lama yang sudah lemot banget. Windows-nya berat, buka Chrome aja butuh 5 menit. Mau dijual, tapi saya minta dulu buat install ulang pakai Linux.</p>
+      <p>Ini materi Linux yang saya pelajari di sekolah. Kami praktik langsung pakai <strong>Debian</strong> yang di-install di <strong>VMware</strong>, dan semuanya dijalankan lewat <strong>mode CLI</strong> — tanpa tampilan grafis, cuma terminal hitam dengan tulisan putih.</p>
+      <p>Awalnya susah banget. Sering salah ketik command, lupa posisi direktori, dan bingung baca error. Tapi karena dibimbing guru dan diulang terus, pelan-pelan mulai kebiasa.</p>
 
-      <h3>Kenapa pilih Lubuntu</h3>
-      <p>Setelah cari-cari di Google, saya pilih <strong>Lubuntu</strong> karena katanya ringan dan cocok buat laptop tua. Sebenarnya penasaran sama Linux Mint, tapi karena laptopnya sudah benar-benar tua, saya pilih yang paling ringan dulu.</p>
-
-      <h3>Percobaan dan kegagalan</h3>
+      <h3>Yang saya pelajari</h3>
       <ul>
-        <li><strong>Percobaan 1 — gagal.</strong> Laptop masih booting ke Windows. Ternyata BIOS belum diatur boot dari USB.</li>
-        <li><strong>Percobaan 2 — gagal lagi.</strong> Installer error di tengah. Ternyata masih ada sisa partisi NTFS lama.</li>
-        <li><strong>Percobaan 3 — berhasil.</strong> Saya hapus semua partisi lama, install ulang dari nol.</li>
+        <li><strong>Konfigurasi IP static</strong> — supaya server punya alamat IP tetap, tidak berubah-ubah.</li>
+        <li><strong>Konfigurasi DHCP</strong> — supaya server bisa membagikan IP otomatis ke klien.</li>
+        <li><strong>Install dan konfigurasi SSH</strong> — supaya bisa remote server dari komputer lain lewat jaringan.</li>
+        <li><strong>Install dan konfigurasi FTP</strong> — untuk membuat file server di Debian.</li>
+        <li><strong>Debian server untuk WordPress</strong> — konfigurasi web server dan database supaya WordPress bisa jalan di Debian.</li>
       </ul>
 
-      <h3>Hasilnya</h3>
-      <p>Laptop sekarang jalan jauh lebih cepat. Buka browser cuma butuh 10 detik. Saya install VS Code buat latihan ngoding. Kakak saya senang, saya juga dapat laptop tambahan buat belajar.</p>
+      <h3>Kesan selama praktik</h3>
+      <p>Seru tapi bikin pusing. Kadang satu langkah salah, seluruh konfigurasi harus diulang dari awal. Tapi dari situlah saya belajar teliti — karena di terminal, salah satu huruf saja bisa bikin error.</p>
+      <p>Yang paling saya suka waktu berhasil <em>remote server pakai SSH</em> dari komputer lain. Rasanya kayak "wah, saya beneran bisa begini ya". Kecil sih, tapi lumayan bangga.</p>
 
-      <div class="art-note">Yang paling berharga dari pengalaman ini bukan hasil install-nya, tapi proses gagalnya. Kalau percobaan pertama langsung berhasil, saya mungkin nggak akan paham bagian mana yang penting.</div>
+      <div class="art-note">
+        Saya masih tahap belajar. Banyak yang harus diulang dan dihafal. Kalau kamu juga sedang belajar Debian server, semangat — kita sama-sama belajar.
+      </div>
     </div>
   </section>
 
@@ -1923,7 +1983,7 @@ img { max-width: 100%; height: auto; }
 </main>
 
 <!-- ═══════════════════════════════════════════════════
-     LIGHTBOX — untuk galeri
+     LIGHTBOX
      ═══════════════════════════════════════════════════ -->
 <div class="lightbox" id="lightbox" onclick="closeLb()">
   <button class="lb-close" onclick="event.stopPropagation(); closeLb();"><i class="fas fa-times"></i></button>
@@ -1940,27 +2000,19 @@ img { max-width: 100%; height: auto; }
 const navLinks = document.querySelectorAll('.sb-nav li a');
 
 function goto(pageId) {
-  // Sembunyikan semua halaman
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-
-  // Tampilkan halaman target
   const target = document.getElementById('page-' + pageId);
   if (target) target.classList.add('active');
-
-  // Update status menu aktif
   navLinks.forEach(a => a.classList.toggle('active', a.dataset.page === pageId));
-
-  // Scroll ke atas
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// Klik menu navigasi
 navLinks.forEach(a => {
   a.addEventListener('click', () => goto(a.dataset.page));
 });
 
 /* ═══════════════════════════════════════════════════
-   JAM LOKAL
+   JAM LOKAL — sekarang muncul di HP juga
    ═══════════════════════════════════════════════════ */
 function updateClock() {
   const el = document.getElementById('clock');
@@ -1975,7 +2027,7 @@ updateClock();
 setInterval(updateClock, 1000);
 
 /* ═══════════════════════════════════════════════════
-   LIGHTBOX GALERI
+   LIGHTBOX
    ═══════════════════════════════════════════════════ */
 const lb = document.getElementById('lightbox');
 const lbImg = document.getElementById('lbImg');
@@ -2004,8 +2056,6 @@ document.addEventListener('keydown', e => {
 /* ═══════════════════════════════════════════════════
    EASTER EGG
    ═══════════════════════════════════════════════════ */
-
-// Ctrl + Shift + R
 document.addEventListener('keydown', e => {
   if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'r') {
     e.preventDefault();
@@ -2013,20 +2063,14 @@ document.addEventListener('keydown', e => {
   }
 });
 
-// Konami Code
 const konami = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
 let kIdx = 0;
 document.addEventListener('keydown', e => {
   const key = e.key.length === 1 ? e.key.toLowerCase() : e.key;
   if (key === konami[kIdx]) {
     kIdx++;
-    if (kIdx === konami.length) {
-      kIdx = 0;
-      goto('rahasia');
-    }
-  } else {
-    kIdx = 0;
-  }
+    if (kIdx === konami.length) { kIdx = 0; goto('rahasia'); }
+  } else { kIdx = 0; }
 });
 
 /* ═══════════════════════════════════════════════════
