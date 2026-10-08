@@ -14,43 +14,48 @@
 
 <style>
 /* ============================================================
-   VARIABEL — palette studio malam
+   VARIABEL
    ============================================================ */
 :root {
-  /* latar bertingkat — bukan hitam pekat */
-  --bg:        #0b0f1a;   /* navy gelap */
-  --bg-2:      #121828;   /* panel */
-  --bg-3:      #1a2138;   /* hover / card aktif */
-  --bg-4:      #242c46;   /* border halus */
+  --bg:        #0b0f1a;
+  --bg-2:      #121828;
+  --bg-3:      #1a2138;
+  --bg-4:      #242c46;
 
-  /* teks bertingkat */
-  --ink:       #ece6d3;   /* teks utama — krem hangat */
-  --ink-2:     #a8a495;   /* teks sekunder */
-  --ink-3:     #6b6759;   /* teks redup */
+  --ink:       #ece6d3;
+  --ink-2:     #a8a495;
+  --ink-3:     #6b6759;
 
-  /* garis */
   --line:      #1e2740;
   --line-2:    #2e3a5c;
 
-  /* aksen — lampu meja & suasana malam */
-  --glow:      #e8b352;   /* kuning hangat — lampu meja */
-  --glow-2:    #f5cf7a;   /* kuning terang */
-  --moon:      #8b9bda;   /* biru-bulan lembut */
-  --plum:      #a878c8;   /* ungu malam */
-  --green:     #6dbd8a;   /* hijau status */
-  --red:       #e05252;   /* merah tanda */
+  --glow:      #e8b352;
+  --glow-2:    #f5cf7a;
+  --moon:      #8b9bda;
+  --plum:      #a878c8;
+  --green:     #6dbd8a;
+  --red:       #e05252;
 
   --font-serif: 'Fraunces', Georgia, serif;
   --font-sans:  'Inter', -apple-system, sans-serif;
   --font-mono:  'JetBrains Mono', ui-monospace, monospace;
 
-  --shadow:    0 1px 2px rgba(0,0,0,0.3), 0 8px 32px rgba(0,0,0,0.35);
-  --glow-shadow: 0 0 30px rgba(232,179,82,0.15);
+  --shadow:      0 1px 2px rgba(0,0,0,0.3), 0 8px 32px rgba(0,0,0,0.35);
+  --sidebar-w: 260px;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
 
 body {
   font-family: var(--font-sans);
@@ -58,12 +63,16 @@ body {
   color: var(--ink);
   font-size: 16px;
   line-height: 1.7;
-  min-height: 100vh;
+  min-height: 100dvh;
+  width: 100%;
   overflow-x: hidden;
   position: relative;
+  margin: 0;
+  padding: 0;
 }
 
-/* ambient glow — cahaya lampu dari sudut atas kanan */
+body > * { max-width: 100vw; }
+
 body::before {
   content: '';
   position: fixed;
@@ -71,17 +80,11 @@ body::before {
   right: -10%;
   width: 800px;
   height: 800px;
-  background: radial-gradient(
-    circle,
-    rgba(232,179,82,0.10) 0%,
-    rgba(232,179,82,0.04) 30%,
-    transparent 65%
-  );
+  background: radial-gradient(circle, rgba(232,179,82,0.10) 0%, rgba(232,179,82,0.04) 30%, transparent 65%);
   pointer-events: none;
   z-index: 0;
 }
 
-/* ambient kedua — ungu dari bawah kiri */
 body::after {
   content: '';
   position: fixed;
@@ -89,24 +92,23 @@ body::after {
   left: -15%;
   width: 700px;
   height: 700px;
-  background: radial-gradient(
-    circle,
-    rgba(168,120,200,0.07) 0%,
-    transparent 60%
-  );
+  background: radial-gradient(circle, rgba(168,120,200,0.07) 0%, transparent 60%);
   pointer-events: none;
   z-index: 0;
 }
 
 /* ============================================================
-   LAYOUT: SIDEBAR + KONTEN
+   LAYOUT
    ============================================================ */
 .layout {
   display: grid;
-  grid-template-columns: 240px 1fr;
-  min-height: 100vh;
+  grid-template-columns: var(--sidebar-w) minmax(0, 1fr);
+  min-height: 100dvh;
+  width: 100%;
+  max-width: 100vw;
   position: relative;
   z-index: 2;
+  overflow-x: hidden;
 }
 
 /* ===== SIDEBAR ===== */
@@ -118,10 +120,14 @@ body::after {
   padding: 32px 22px 24px;
   position: sticky;
   top: 0;
-  height: 100vh;
+  height: 100dvh;
+  max-height: 100dvh;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
+  overflow-x: hidden;
+  width: 100%;
+  min-width: 0;
 }
 
 .sb-brand {
@@ -152,20 +158,12 @@ body::after {
   position: absolute;
   inset: -3px;
   border-radius: 50%;
-  background: conic-gradient(
-    from 0deg,
-    var(--glow),
-    var(--plum),
-    var(--moon),
-    var(--glow)
-  );
+  background: conic-gradient(from 0deg, var(--glow), var(--plum), var(--moon), var(--glow));
   z-index: 0;
   opacity: .5;
   animation: rotate 8s linear infinite;
 }
-@keyframes rotate {
-  to { transform: rotate(360deg); }
-}
+@keyframes rotate { to { transform: rotate(360deg); } }
 
 .sb-name {
   font-family: var(--font-serif);
@@ -186,7 +184,6 @@ body::after {
   text-transform: uppercase;
 }
 
-/* waktu nyala — seperti jam di ruang kerja */
 .sb-clock {
   background: var(--bg-2);
   border: 1px solid var(--line);
@@ -233,20 +230,12 @@ body::after {
   50% { opacity: 0.35; }
 }
 
-/* Nav */
 .sb-nav {
   list-style: none;
   display: flex;
   flex-direction: column;
   gap: 1px;
   flex: 1;
-}
-
-.sb-nav li {
-  counter-increment: nav-num;
-}
-.sb-nav {
-  counter-reset: nav-num;
 }
 
 .sb-nav li a {
@@ -305,7 +294,6 @@ body::after {
 }
 .sb-nav li a.active .num { color: var(--glow); }
 
-/* Footer sidebar */
 .sb-foot {
   margin-top: 20px;
   padding-top: 16px;
@@ -322,17 +310,20 @@ body::after {
    KONTEN UTAMA
    ============================================================ */
 .main {
-  padding: 44px 64px 80px;
-  max-width: 1040px;
+  padding: clamp(24px, 4vw, 56px) clamp(20px, 5vw, 72px) clamp(60px, 8vw, 100px);
   width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
-/* ===== HEADER ===== */
 .pg-head {
   padding-bottom: 26px;
   border-bottom: 1px solid var(--line);
   margin-bottom: 44px;
   position: relative;
+  max-width: 100%;
+  min-width: 0;
 }
 .pg-head .stamp {
   position: absolute;
@@ -371,11 +362,7 @@ body::after {
   line-height: 1.05;
   color: var(--ink);
 }
-.pg-title em {
-  font-style: italic;
-  color: var(--glow);
-  font-weight: 400;
-}
+.pg-title em { font-style: italic; color: var(--glow); font-weight: 400; }
 
 .pg-desc {
   color: var(--ink-2);
@@ -386,7 +373,6 @@ body::after {
 }
 .pg-desc strong { color: var(--ink); font-weight: 500; }
 
-/* ===== PAGE toggle ===== */
 .page { display: none; animation: fade .45s cubic-bezier(.2,.8,.2,1); }
 .page.active { display: block; }
 @keyframes fade {
@@ -395,11 +381,11 @@ body::after {
 }
 
 /* ============================================================
-   HOME — layout asimetris
+   HOME
    ============================================================ */
 .hero-grid {
   display: grid;
-  grid-template-columns: 1fr 300px;
+  grid-template-columns: minmax(0, 1fr) 300px;
   gap: 56px;
   align-items: start;
   margin-bottom: 60px;
@@ -414,11 +400,7 @@ body::after {
   color: var(--ink);
   margin-bottom: 24px;
 }
-.hero-lede em {
-  font-style: italic;
-  color: var(--glow);
-  font-weight: 400;
-}
+.hero-lede em { font-style: italic; color: var(--glow); font-weight: 400; }
 .hero-lede .underline {
   background-image: linear-gradient(transparent 62%, rgba(232,179,82,0.35) 62%);
   padding: 0 2px;
@@ -449,7 +431,6 @@ body::after {
   margin-top: 28px;
 }
 
-/* Tombol */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -467,7 +448,6 @@ body::after {
 .btn.solid {
   background: var(--glow);
   color: var(--bg);
-  box-shadow: 0 0 0 rgba(232,179,82,0);
 }
 .btn.solid:hover {
   background: var(--glow-2);
@@ -485,7 +465,6 @@ body::after {
   background: rgba(232,179,82,0.05);
 }
 
-/* ===== KARTU IDENTITAS ===== */
 .id-card {
   background: linear-gradient(160deg, var(--bg-2) 0%, var(--bg) 100%);
   border: 1px solid var(--line);
@@ -493,6 +472,7 @@ body::after {
   padding: 24px 22px;
   position: relative;
   overflow: hidden;
+  max-width: 100%;
 }
 .id-card::before {
   content: '';
@@ -560,11 +540,12 @@ body::after {
   text-align: right;
 }
 
-/* ===== SECTION ===== */
 .sec-block {
   margin-bottom: 60px;
   padding-top: 40px;
   border-top: 1px solid var(--line);
+  max-width: 100%;
+  min-width: 0;
 }
 
 .sec-num {
@@ -604,18 +585,17 @@ body::after {
   letter-spacing: 0.04em;
 }
 
-/* ============================================================
-   TOPIK — kartu dengan nomor besar
-   ============================================================ */
 .topic-list {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .topic {
   display: grid;
-  grid-template-columns: 60px 1fr auto;
+  grid-template-columns: 60px minmax(0, 1fr) auto;
   gap: 22px;
   align-items: center;
   padding: 22px 24px;
@@ -626,6 +606,8 @@ body::after {
   transition: all .25s cubic-bezier(.2,.8,.2,1);
   position: relative;
   overflow: hidden;
+  max-width: 100%;
+  min-width: 0;
 }
 .topic::before {
   content: '';
@@ -659,7 +641,7 @@ body::after {
   z-index: 1;
 }
 
-.topic-info { position: relative; z-index: 1; }
+.topic-info { position: relative; z-index: 1; min-width: 0; }
 .topic-info h4 {
   font-family: var(--font-serif);
   font-size: 18px;
@@ -697,9 +679,11 @@ body::after {
    ============================================================ */
 .bio-grid {
   display: grid;
-  grid-template-columns: 240px 1fr;
+  grid-template-columns: 240px minmax(0, 1fr);
   gap: 44px;
   align-items: start;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .bio-photo-card {
@@ -710,6 +694,7 @@ body::after {
   border-radius: 12px;
   padding: 12px;
   transition: all .3s;
+  max-width: 100%;
 }
 .bio-photo-card:hover {
   border-color: var(--line-2);
@@ -743,21 +728,24 @@ body::after {
   text-transform: uppercase;
 }
 
-/* Data list */
 .data-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 0;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .data-item {
   display: grid;
-  grid-template-columns: 180px 1fr;
+  grid-template-columns: 180px minmax(0, 1fr);
   gap: 20px;
   padding: 16px 0;
   border-bottom: 1px solid var(--line);
   align-items: baseline;
   transition: all .2s;
+  max-width: 100%;
+  min-width: 0;
 }
 .data-item:first-child { border-top: 1px solid var(--line); }
 .data-item:hover {
@@ -777,6 +765,7 @@ body::after {
   color: var(--ink);
   font-weight: 400;
   font-family: var(--font-serif);
+  min-width: 0;
 }
 .data-val small {
   display: block;
@@ -799,6 +788,8 @@ body::after {
   border-radius: 12px;
   transition: all .25s;
   position: relative;
+  max-width: 100%;
+  min-width: 0;
 }
 .skill-block:hover {
   border-color: var(--line-2);
@@ -864,12 +855,14 @@ body::after {
 .skill-note strong { color: var(--ink); font-weight: 500; }
 
 /* ============================================================
-   GALERI — grid foto dengan hover glow
+   GALERI
    ============================================================ */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 14px;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .gal-item {
@@ -881,16 +874,13 @@ body::after {
   background: var(--bg-3);
   border: 1px solid var(--line);
   transition: all .3s cubic-bezier(.2,.8,.2,1);
+  max-width: 100%;
 }
 .gal-item::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    transparent 40%,
-    rgba(11,15,26,0.85) 100%
-  );
+  background: linear-gradient(180deg, transparent 40%, rgba(11,15,26,0.85) 100%);
   transition: opacity .3s;
   opacity: 0;
   z-index: 1;
@@ -967,11 +957,13 @@ body::after {
 
 .contact-list {
   border-top: 1px solid var(--line);
+  max-width: 100%;
+  min-width: 0;
 }
 
 .contact-row {
   display: grid;
-  grid-template-columns: 48px 1fr auto;
+  grid-template-columns: 48px minmax(0, 1fr) auto;
   gap: 20px;
   align-items: center;
   padding: 22px 12px 22px 4px;
@@ -980,6 +972,8 @@ body::after {
   border-bottom: 1px solid var(--line);
   transition: all .25s;
   position: relative;
+  max-width: 100%;
+  min-width: 0;
 }
 .contact-row::before {
   content: '';
@@ -997,10 +991,7 @@ body::after {
   background: linear-gradient(90deg, var(--bg-2) 0%, transparent 100%);
 }
 .contact-row:hover::before { height: 60%; }
-.contact-row:hover .c-arrow {
-  color: var(--glow);
-  transform: translateX(5px);
-}
+.contact-row:hover .c-arrow { color: var(--glow); transform: translateX(5px); }
 .contact-row:hover .c-ico {
   border-color: var(--glow);
   color: var(--glow);
@@ -1018,7 +1009,9 @@ body::after {
   color: var(--ink-2);
   font-size: 16px;
   transition: all .25s;
+  flex-shrink: 0;
 }
+.c-info { min-width: 0; }
 .c-info strong {
   display: block;
   font-size: 15.5px;
@@ -1033,6 +1026,7 @@ body::after {
   font-size: 12px;
   color: var(--ink-3);
   letter-spacing: 0.02em;
+  word-break: break-all;
 }
 .c-arrow {
   color: var(--ink-3);
@@ -1082,6 +1076,11 @@ body::after {
   font-size: 10.5px;
 }
 
+.art-body {
+  max-width: 100%;
+  min-width: 0;
+  counter-reset: h3-idx;
+}
 .art-body p {
   font-size: 16.5px;
   color: var(--ink-2);
@@ -1111,8 +1110,8 @@ body::after {
   color: var(--glow);
   opacity: 0.7;
   font-weight: 300;
+  flex-shrink: 0;
 }
-.art-body { counter-reset: h3-idx; }
 
 .art-body ul {
   margin: 12px 0 22px 22px;
@@ -1136,6 +1135,7 @@ body::after {
   font-style: italic;
   margin: 28px 0;
   position: relative;
+  max-width: 100%;
 }
 .art-note::before {
   content: 'CATATAN';
@@ -1214,6 +1214,7 @@ body::after {
   margin: 28px 0;
   text-align: left;
   position: relative;
+  overflow-x: auto;
 }
 .secret-code .lbl {
   font-family: var(--font-mono);
@@ -1249,6 +1250,7 @@ body::after {
   color: var(--ink-3);
   flex-wrap: wrap;
   letter-spacing: 0.03em;
+  max-width: 100%;
 }
 .foot kbd {
   font-family: var(--font-mono);
@@ -1294,10 +1296,7 @@ body::after {
   max-width: 90vw;
   max-height: 82vh;
   border-radius: 12px;
-  box-shadow:
-    0 0 0 1px var(--line-2),
-    0 40px 80px rgba(0,0,0,0.7),
-    0 0 80px rgba(232,179,82,0.12);
+  box-shadow: 0 0 0 1px var(--line-2), 0 40px 80px rgba(0,0,0,0.7), 0 0 80px rgba(232,179,82,0.12);
 }
 
 .lb-cap {
@@ -1336,14 +1335,48 @@ body::after {
 }
 
 /* ============================================================
+   ANTI-SCROLL-X
+   ============================================================ */
+.hero-grid,
+.bio-grid,
+.topic-list,
+.topic,
+.gallery-grid,
+.gal-item,
+.contact-list,
+.contact-row,
+.data-grid,
+.data-item,
+.skill-block,
+.id-card,
+.art-body,
+.secret-wrap,
+.foot,
+.pg-head {
+  max-width: 100%;
+  min-width: 0;
+}
+
+img { max-width: 100%; height: auto; }
+pre, code { max-width: 100%; overflow-x: auto; }
+
+/* ============================================================
    RESPONSIVE
    ============================================================ */
+@media (max-width: 1100px) {
+  :root { --sidebar-w: 220px; }
+  .main { padding: 40px clamp(24px, 4vw, 48px) 80px; }
+}
+
 @media (max-width: 900px) {
+  :root { --sidebar-w: 100%; }
+
   .layout { grid-template-columns: 1fr; }
 
   .sidebar {
     position: relative;
     height: auto;
+    max-height: none;
     padding: 16px 18px;
     border-right: none;
     border-bottom: 1px solid var(--line);
@@ -1401,14 +1434,60 @@ body::after {
   .pg-head .stamp { display: none; }
 }
 
-@media (max-width: 480px) {
-  .pg-title { font-size: 26px; }
+@media (max-width: 640px) {
+  .main { padding: 24px 16px 50px; }
   .hero-lede { font-size: 20px; }
+  .pg-title { font-size: 26px; }
+  .pg-desc { font-size: 15px; }
   .sec-title { font-size: 22px; }
-  .art-body h3 { font-size: 19px; }
-  .foot { flex-direction: column; gap: 10px; }
-  .gallery-grid { gap: 8px; }
+
+  .topic { padding: 16px; grid-template-columns: 36px 1fr auto; gap: 12px; }
+  .topic-num { font-size: 26px; }
+  .topic-info h4 { font-size: 16px; }
+  .topic-info p { font-size: 13px; }
+
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
   .gal-cap { font-size: 11.5px; bottom: 8px; left: 10px; right: 10px; }
+  .gal-num { font-size: 9px; padding: 2px 6px; top: 8px; left: 8px; }
+
+  .art-body h3 { font-size: 19px; }
+  .art-body p { font-size: 15px; }
+  .art-body ul li { font-size: 14.5px; }
+
+  .secret-wrap { padding: 34px 22px; }
+  .secret-glyph { font-size: 46px; }
+  .secret-wrap h2 { font-size: 22px; }
+
+  .contact-lede { font-size: 18px; }
+  .c-info strong { font-size: 14.5px; }
+  .c-info span { font-size: 11px; word-break: break-all; }
+
+  .foot { font-size: 10.5px; }
+}
+
+@media (max-width: 480px) {
+  .main { padding: 20px 14px 44px; }
+  .pg-title { font-size: 22px; }
+  .hero-lede { font-size: 18px; }
+  .sec-title { font-size: 20px; }
+
+  .sidebar { padding: 12px 14px; }
+  .sb-name { font-size: 13.5px; }
+
+  .gallery-grid { grid-template-columns: 1fr; gap: 10px; }
+  .foot { flex-direction: column; gap: 10px; }
+
+  .bio-photo-card { max-width: 100%; }
+  .data-item { padding: 12px 0; }
+  .data-val { font-size: 14.5px; }
+}
+
+@media (max-width: 360px) {
+  .main { padding: 16px 12px 40px; }
+  .pg-title { font-size: 20px; }
+  .topic-num { font-size: 22px; }
+  .topic-info h4 { font-size: 15px; }
+  .topic-info h4 small { display: block; margin-left: 0; margin-top: 2px; }
 }
 </style>
 </head>
@@ -2101,7 +2180,7 @@ function updateClock() {
   const hh = String(now.getHours()).padStart(2, '0');
   const mm = String(now.getMinutes()).padStart(2, '0');
   const ss = String(now.getSeconds()).padStart(2, '0');
-  el.textContent = `${hh}:${mm}:${ss}`;
+  el.textContent = hh + ':' + mm + ':' + ss;
 }
 updateClock();
 setInterval(updateClock, 1000);
@@ -2127,7 +2206,7 @@ function closeLb() {
 }
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
 
-/* ============ EASTER EGG: Ctrl+Shift+R ============ */
+/* ============ EASTER EGG ============ */
 document.addEventListener('keydown', e => {
   if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'r') {
     e.preventDefault();
